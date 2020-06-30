@@ -6,8 +6,8 @@ const port = 8080;
 
 app.get('/', async (req, res) => {
     try {
-        const ip = await got(`http://${process.env.COMPONENT_BACKEND_HOST}:${process.env.COMPONENT_BACKEND_PORT}`);
-        res.send(`IP Address of backend ${ip.ip}`);
+        const data = await got(`http://${process.env.COMPONENT_BACKEND_HOST}:${process.env.COMPONENT_BACKEND_PORT}`);
+        res.send(`Pod name of backend ${data.name}`);
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
